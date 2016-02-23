@@ -5,44 +5,44 @@ Unattended-Upgrade::Allowed-Origins {
 };
 
 Unattended-Upgrade::Package-Blacklist {
-<%- unless $unattended_upgrades::package_blacklist == Undef or $unattended_upgrades::package_blacklist.empty { %>
+<%- if $unattended_upgrades::package_blacklist and !$unattended_upgrades::package_blacklist.empty { %>
 <%- $unattended_upgrades::package_blacklist.each |$package| { %>
     "<%= $unattended_upgrades::package %>";
 <%- }} %>
 };
 
-<%- if $unattended_upgrades::autofixinterrupteddpkg =~ Undef { %>
+<%- if $unattended_upgrades::autofixinterrupteddpkg { -%>
 Unattended-Upgrade::AutoFixInterruptedDpkg "<%= $unattended_upgrades::autofixinterrupteddpkg %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::minimalstep =~ Undef { %>
+<%- if $unattended_upgrades::minimalstep { -%>
 Unattended-Upgrade::MinimalSteps "<%= $unattended_upgrades::minimalstep %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::installonshutdown =~ Undef { %>
+<%- if $unattended_upgrades::installonshutdown { -%>
 Unattended-Upgrade::InstallOnShutdown "<%= $unattended_upgrades::installonshutdown %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::mail =~ Undef { %>
+<%- if $unattended_upgrades::mail { -%>
 Unattended-Upgrade::Mail "<%= $unattended_upgrades::mail %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::mailonlyonerror =~ Undef { %>
+<%- if $unattended_upgrades::mailonlyonerror { -%>
 Unattended-Upgrade::MailOnlyOnError "<%= $unattended_upgrades::mailonlyonerror %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::remove_unused_dependencies =~ Undef { %>
+<%- if $unattended_upgrades::remove_unused_dependencies { -%>
 Unattended-Upgrade::Remove-Unused-Dependencies "<%= $unattended_upgrades::remove_unused_dependencies %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::automatic_reboot =~ Undef { %>
+<%- if $unattended_upgrades::automatic_reboot { -%>
 Unattended-Upgrade::Automatic-Reboot "<%= $unattended_upgrades::automatic_reboot %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::automatic_reboot_time =~ Undef { %>
+<%- if $unattended_upgrades::automatic_reboot_time { -%>
 Unattended-Upgrade::Automatic-Reboot-Time "<%= $unattended_upgrades::automatic_reboot_time %>";
-<%- } %>
+<%- } -%>
 
-<%- if $unattended_upgrades::http_dl_limit =~ Undef { %>
+<%- if $unattended_upgrades::http_dl_limit { -%>
 Acquire::http::Dl-Limit "<%= $unattended_upgrades::http_dl_limit %>";
-<%- } %>
+<%- } -%>
