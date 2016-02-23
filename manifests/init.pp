@@ -14,25 +14,10 @@ class unattended_upgrades(
   $update_package_list        = $::unattended_upgrades::params::update_package_list,
   $unattended_upgrade         = $::unattended_upgrades::params::unattended_upgrade,
   $autocleaninterval          = undef,
-) {
-  include ::unattended_upgrades::params
+) inherits unattended_upgrades::params {
 
-  file {'20auto-upgrades':
-    ensure  => file,
-    path    => $::unattended_upgrades::params::auto_upgrades_f,
-    content => epp('unattended_upgrades/unattended_upgrades.epp'),
-    owner   => root,
-    group   => root,
-    mode    => 'u=rwX,go=rX',
-  }
-
-  file {'50unattended-upgrades':
-    ensure  => file,
-    path    => $::unattended_upgrades::params::unattended_upgrades_f,
-    content => epp('unattended_upgrades/unattended_upgrades.epp'),
-    owner   => root,
-    group   => root,
-    mode    => 'u=rwX,go=rX',
-  }
-
+  anchor { 'unattended_upgrades::begin': } ->
+  class { 'unattended_upgrades::install': } ->
+  class { 'unattended_upgrades::config': } ->
+  anchor { 'unattended_upgrades::end': }
 }
