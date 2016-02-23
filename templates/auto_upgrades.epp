@@ -1,0 +1,11 @@
+<%- if $unattended_upgrades::update_package_list =~ Undef { %>
+APT::Periodic::Update-Package-Lists "<%= $update_package_list %>";
+<%- } %>
+
+<%- if $unattended_upgrades::unattended_upgrade =~ Undef { %>
+APT::Periodic::Unattended-Upgrade "<%= $unattended_upgrade %>";
+<%- } %>
+
+<%- if $unattended_upgrades::autocleaninterval =~ Undef { %>
+APT::Periodic::AutocleanInterval "<%= $autocleaninterval %>";
+<%- } %>

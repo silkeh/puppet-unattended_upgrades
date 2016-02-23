@@ -17,5 +17,6 @@ class unattended_upgrades::params {
   $mail                  = 'root'
   $unattended_upgrades_f = "${apt_conf_d}/50unattended-upgrades"
   $auto_upgrades_f       = "${apt_conf_d}/20auto-upgrades"
-  $auto_upgrades_config  = "APT::Periodic::Update-Package-Lists \"1\";\nAPT::Periodic::Unattended-Upgrade \"1\";"
+  $update_package_list   = '1'
+  $unattended_upgrade    = '1'
 }
