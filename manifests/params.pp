@@ -13,6 +13,12 @@ class unattended_upgrades::params {
     default  => '/etc/apt/apt.conf.d',
   }
 
+  # Default origins pattern
+  $allowed_origins = $::lsbdistid ? {
+    'debian' => ['origin=Debian,codename=${distro_codename},label=Debian-Security'],
+    default  => [],
+  }
+
   # Other parameters
   $mail                  = 'root'
   $unattended_upgrades_f = "${apt_conf_d}/50unattended-upgrades"

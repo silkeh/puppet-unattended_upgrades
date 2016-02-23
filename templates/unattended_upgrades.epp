@@ -24,7 +24,7 @@ Unattended-Upgrade::InstallOnShutdown "<%= $unattended_upgrades::installonshutdo
 <%- } %>
 
 <%- if $unattended_upgrades::mail =~ Undef { %>
-Unattended-Upgrade::Mail "<%= $unattended_upgrades::v_mail %>";
+Unattended-Upgrade::Mail "<%= $unattended_upgrades::mail %>";
 <%- } %>
 
 <%- if $unattended_upgrades::mailonlyonerror =~ Undef { %>
