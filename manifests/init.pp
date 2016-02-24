@@ -1,6 +1,6 @@
 # Class for enabling and configuring unattended-upgrades
 class unattended_upgrades(
-  $allowed_origins            = $::unattended_upgrades::params::allowed_origins,
+  $origins                    = $::unattended_upgrades::params::origins,
   $package_blacklist          = [],
   $autofixinterrupteddpkg     = undef,
   $minimalstep                = undef,

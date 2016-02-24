@@ -1,13 +1,13 @@
-Unattended-Upgrade::Allowed-Origins {
-<%- $unattended_upgrades::allowed_origins.each |$origin| { %>
-    "<%= $unattended_upgrades::origin %>";
+Unattended-Upgrade::Origins-Pattern {
+<%- $unattended_upgrades::origins.each |$origin| { %>
+    "<%= $origin %>";
 <%- } %>
 };
 
 Unattended-Upgrade::Package-Blacklist {
 <%- if $unattended_upgrades::package_blacklist and !$unattended_upgrades::package_blacklist.empty { %>
 <%- $unattended_upgrades::package_blacklist.each |$package| { %>
-    "<%= $unattended_upgrades::package %>";
+    "<%= $package %>";
 <%- }} %>
 };
 
