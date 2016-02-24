@@ -1,3 +1,5 @@
+# This file is managed by puppet
+# Modifications to this file will be lost
 <%- if $unattended_upgrades::update_package_list { -%>
 APT::Periodic::Update-Package-Lists "<%= $unattended_upgrades::update_package_list %>";
 <%- } -%>
@@ -9,3 +11,4 @@ APT::Periodic::Unattended-Upgrade "<%= $unattended_upgrades::unattended_upgrade 
 <%- if $unattended_upgrades::autocleaninterval { -%>
 APT::Periodic::AutocleanInterval "<%= $unattended_upgrades::autocleaninterval %>";
 <%- } -%>
+

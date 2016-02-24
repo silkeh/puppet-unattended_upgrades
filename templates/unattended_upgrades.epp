@@ -1,3 +1,6 @@
+# This file is managed by puppet
+# Modifications to this file will be lost
+
 Unattended-Upgrade::Origins-Pattern {
 <%- $unattended_upgrades::origins.each |$origin| { %>
     "<%= $origin %>";
@@ -46,3 +49,4 @@ Unattended-Upgrade::Automatic-Reboot-Time "<%= $unattended_upgrades::automatic_r
 <%- if $unattended_upgrades::http_dl_limit { -%>
 Acquire::http::Dl-Limit "<%= $unattended_upgrades::http_dl_limit %>";
 <%- } -%>
+
