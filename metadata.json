@@ -1,15 +1,14 @@
 {
-  "name": "sot/unattended_upgrades",
+  "name": "silkeh/unattended_upgrades",
   "version": "0.1.0",
-  "author": "sot",
+  "author": "Silke Hofstra",
   "summary": "Manage unattended upgrades for apt",
   "license": "GPLv3",
   "source": "unattended_upgrades",
-  "project_page": "SOT",
-  "issues_url": "Redmine",
+  "project_page": "https://github.com/silkeh/puppet-unattended_upgrades",
+  "issues_url": "https://github.com/silkeh/puppet-unattended_upgrades/issues",
   "dependencies": [
     {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"},
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.5.0 < 5.0.0"}
   ]
 }
-
