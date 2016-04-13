@@ -6,7 +6,7 @@ class unattended_upgrades::config inherits unattended_upgrades {
     path    => $::unattended_upgrades::params::auto_upgrades_f,
     content => epp('unattended_upgrades/auto_upgrades.epp'),
     owner   => root,
-    #group   => root,
+    group   => root,
     mode    => 'u=rw,go=r',
   }
 
@@ -15,7 +15,7 @@ class unattended_upgrades::config inherits unattended_upgrades {
     path    => $::unattended_upgrades::params::unattended_upgrades_f,
     content => epp('unattended_upgrades/unattended_upgrades.epp'),
     owner   => root,
-    #group   => root,
+    group   => root,
     mode    => 'u=rw,go=r',
   }
 
