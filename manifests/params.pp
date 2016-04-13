@@ -15,7 +15,10 @@ class unattended_upgrades::params {
 
   # Default origins pattern
   $origins = $::lsbdistid ? {
-    'debian' => ['origin=Debian,codename=${distro_codename},label=Debian-Security'],
+    'debian' => $::lsbdistcodename ? {
+      'wheezy' => ['origin=Debian,archive=oldstable,label=Debian-Security'],
+      default  => ['origin=Debian,codename=${distro_codename},label=Debian-Security'],
+    },
     default  => [],
   }
 
